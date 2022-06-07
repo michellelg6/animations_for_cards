@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Card Animation Ideas</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<style>
 	   body{
 	   margin: 0;
@@ -12,7 +13,14 @@
 	   height: 100vh;
 	   flex-direction: column;
 	   }
-		#grid {
+	   
+	   #thirds{
+	     display: grid;
+		 grid-template-columns: auto auto auto;
+		 grid-gap: 12.5%;
+		 width: 100vw;
+	   }
+		.grid{
 		display: grid;
 		grid-template-columns: auto auto auto auto;
 		grid-gap: 12.5%;
@@ -105,6 +113,69 @@
 			
 		}
 		
+		.grid-item > #ten{
+		  perspective: 100rem;
+		}
+		
+		#ten, #container11{
+		position: relative;
+		 display: flex;
+		 flex-direction: column;
+		 justify-content: center;
+		 align-items: center;
+		 
+		transform-style: preserve-3d;
+		 
+		transform: rotateY(10deg);
+		transition: transform 0.5s, left 0.5s;
+					  
+		}
+		
+		#ten.change{
+          transform: rotateY(70deg);
+        }
+		
+	     #curtain{
+			 background: #fff;
+			 font-weight: bolder;
+			 border: 0px;
+			 overflow: hidden;
+			 border-right: 5px solid #f99;
+			 padding-right: 0.35%
+	}  
+		 
+		.balls, .par{ 
+		  position: absolute;
+	      text-align:center;
+	      top:0;
+	      left:50%;
+		  transform: translateX(-50%);
+		  
+		}
+		
+		#crystal_ball{
+		 padding: 15%;
+		 background-image: linear-gradient(#99f, #1a1aff, #009);
+		 border-radius: 100%;
+		}
+		
+		#crystal_ball_back{
+		 transform: rotateY(270deg) translateZ(25rem) translateX(-25rem);
+		 padding: 15%;
+		 background-image: linear-gradient(#00e600, #e6b800, #bfff80);
+		 border-radius: 100%;
+		}
+		
+		.halfSize{
+	      transform: translateX(57%);
+	      transition: all 1s ease-out;
+	    }
+	 
+	 .eigthSize{
+	  transform: translateX(5%);
+	  transition: all 1s ease-out;
+	 }
+		
 		
 		@keyframes horizontalAndVerticalMovement{
 			0%{
@@ -177,8 +248,35 @@
 	</style>
 </head>
 <body>
-  <h1>Card Animation Exercises</h1>
-  <div id="grid">
+  <h1>Card Animation Ideas</h1>
+  <h2>Advanced Card Ideas</h2>
+  <div id = "thirds" class="grid">
+  <div class="grid-item">
+  <div id = "ten" class="grid-item">
+	     <div class= "balls" id = "crystal_ball_back">
+	     <em>Effect 10</em>
+		 </div>
+	    <div class = "balls" id = "crystal_ball">
+	     <strong>Effect 10</strong>
+		 </div>
+     </div>
+	</div>
+	<div class="grid-item">
+	 <div id="container11">
+	 <div class="par" id = "sub">
+	   <p>Effect 11</p>
+	 </div>
+	 <div class="par" id = "curtain">
+	   <p><strong>Effect 11</strong></p>
+	 </div>
+	</div>	
+	</div>
+    <div class="grid-item"> Effect 12</div>
+ </div>
+ </div>
+  <h2>Simple Card Ideas</h2>
+  
+  <div class="grid">
 	<div id = "one" class="grid-item">
 		<span>Effect 1</span>
 	</div>
@@ -190,8 +288,7 @@
 	</div>
 	<div class="grid-item">
 		<del>Effect 4</del>
-	<em>Effect 4</em>
-	<strong>Effect 4</strong>
+	<em>Effect 4</em>	<strong>Effect 4</strong>
 	</div>
 	<div class="grid-item">
 		<span id = "relativePos">Effect 5</span>
@@ -210,9 +307,34 @@
 	<div id = "word9" class="grid-item">
 		<span>Effect 9: <br>Hover to see effect</span>
 	</div>
-	<div class="grid-item">Effect 10</div>
-	<div class="grid-item">Effect 11</div>
-    <div class="grid-item"> Effect 12</div>
- </div>
+	
+ 
+ 
+ <script>
+ const crystalBall = document.querySelector("#crystal_ball");
+ const crystalBallBack = document.querySelector("#crystal_ball_back");
+ const ten = document.querySelector("#ten");
+ 
+$(function(){
+	    $('#curtain').click(function(){
+	      $("#curtain p").addClass('halfSize'); 
+		  $('#sub').addClass('eigthSize');
+		  });
+	 /**/});
+	 
+
+
+crystalBall.addEventListener("click", (e) => {
+  e.preventDefault();
+  ten.classList.add("change");
+});
+
+crystalBallBack.addEventListener("click", (e) => {
+  e.preventDefault();
+  ten.classList.remove("change");
+});
+
+
+ </script>
 </body>
 </html>
