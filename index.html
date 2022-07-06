@@ -113,27 +113,64 @@
 			
 		}
 		
-		.grid-item > #ten{
-		  perspective: 100rem;
-		}
-		
-		#ten, #container11{
-		position: relative;
-		 display: flex;
-		 flex-direction: column;
-		 justify-content: center;
-		 align-items: center;
-		 
-		transform-style: preserve-3d;
-		 
-		transform: rotateY(10deg);
-		transition: transform 0.5s, left 0.5s;
-					  
-		}
-		
-		#ten.change{
-          transform: rotateY(70deg);
-        }
+		/**/
+		#container{
+	/*inner spacing of container */
+	padding:1rem;
+}
+
+#card{
+	/*Width and height of the actual card */
+	height: 5rem;
+	width: 3rem;
+	
+	/*Will Make faces absolute */
+	position: relative;
+	
+	/*Tells the system we are working with 3d*/
+	transform-style: preserve-3d;
+	
+	transition: transform 1s ease-in-out;
+}
+
+#card:hover{
+	/*turn it in the Y direction*/
+	transform: rotateY(180deg);
+}
+
+.card-face{
+	/*Make items centered */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
+	/*Not to see the back */
+	backface-visibility: hidden;
+	
+	/*border and font */
+	border: solid 5px black;
+	font-size: 40px;
+	
+	/*Makes the faces stacked on top*/
+	position: absolute;
+	
+	/*Format them*/
+	height: 100%;
+	width: 100%;
+	
+}
+
+#front{
+	background-color: blue;
+}
+
+#back{
+	background-color:#ffa500;
+	transform: rotateY(180deg);
+}
+
+		/**/
+	
 		
 	     #curtain{
 			 background: #fff;
@@ -249,31 +286,7 @@
 </head>
 <body>
   <h1>Card Animation Ideas</h1>
-  <h2>Advanced Card Ideas</h2>
-  <div id = "thirds" class="grid">
-  <div class="grid-item">
-  <div id = "ten" class="grid-item">
-	     <div class= "balls" id = "crystal_ball_back">
-	     <em>Effect 10</em>
-		 </div>
-	    <div class = "balls" id = "crystal_ball">
-	     <strong>Effect 10</strong>
-		 </div>
-     </div>
-	</div>
-	<div class="grid-item">
-	 <div id="container11">
-	 <div class="par" id = "sub">
-	   <p>Effect 11</p>
-	 </div>
-	 <div class="par" id = "curtain">
-	   <p><strong>Effect 11</strong></p>
-	 </div>
-	</div>	
-	</div>
-    <div class="grid-item"> Effect 12</div>
- </div>
- </div>
+ 
   <h2>Simple Card Ideas</h2>
   
   <div class="grid">
