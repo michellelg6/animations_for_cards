@@ -1,0 +1,231 @@
+ body{
+	   margin: 0;
+	   display: flex;
+	   align-items: center;
+	   justify-content: center;
+	   height: 100vh;
+	   flex-direction: column;
+	   }
+	   
+	   #thirds{
+	     display: grid;
+		 grid-template-columns: auto auto auto;
+		 grid-gap: 12.5%;
+		 width: 100vw;
+	   }
+		.grid{
+		display: grid;
+		grid-template-columns: auto auto auto auto;
+		grid-gap: 12.5%;
+		width: 100vw;
+		}
+		.grid-item{
+		background-color: rgba(255, 255, 255, 0.8);
+		padding: 20px;
+		font-size: 30px;
+		text-align: center;
+		}
+		
+		#one span{
+			position: relative;
+			animation-name: horizontalAndVerticalMovement;
+			animation-duration: 0.5s;
+			animation-iteration-count: infinite;
+			
+		}
+		
+		#two{
+			position: relative;
+			animation-name: spacingChange;
+			animation-duration: 0.5s;
+			animation-iteration-count: infinite;
+			
+		}
+		#three span
+		{   position: relative;
+			animation-name: sizeAndBoldness;
+			animation-duration: 5s;
+			animation-iteration-count: infinite;
+			
+		}
+		
+		#relativePos
+		{   position: relative;
+		    top: 1%;
+		}
+		
+		#absolutePos{
+		 position: absolute;
+		 top: 10%;
+		}
+		
+		#word{
+		 position: relative;
+		  margin: 0 auto;
+		  background: linear-gradient(45deg, #ccc, #d9d9d9, #f2f2f2);
+		}
+		
+		#six{
+		margin: 0 auto;
+		position: relative;
+		height: 90%;
+		 background: linear-gradient(45deg, #ddd, #ccc, #999);
+		text-align: center;
+		color: #f00;
+		}
+		
+		.dark_blue {
+		
+		 color: #009 //!important;
+		}
+		
+		#green_oval{
+		border-radius: 50%;
+		 padding: 5% 0 5% 0;
+		 background-color: green;
+		 transform: skewX(11deg);
+		 transform: scaleX(1.5);
+		 
+		}
+		
+		#green_oval h4{
+		 transform: rotate(11deg);
+		 transform: skewY(50deg);
+	
+		}
+		
+		#word8{
+		 opacity: 0.1;
+		}
+		
+		#word9 span:hover{
+		   position: relative;
+		   animation-name: fadeDuringMotion;
+		   animation-duration: 5s;
+		   animation-iteration-count: infinite;
+			
+		}
+		
+		/**/
+		#container{
+	/*inner spacing of container */
+	padding:1rem;
+}
+
+#card{
+	/*Width and height of the actual card */
+	height: 5rem;
+	width: 3rem;
+	
+	/*Will Make faces absolute */
+	position: relative;
+	
+	/*Tells the system we are working with 3d*/
+	transform-style: preserve-3d;
+	
+	transition: transform 1s ease-in-out;
+}
+
+#card:hover{
+	/*turn it in the Y direction*/
+	transform: rotateY(180deg);
+}
+
+.card-face{
+	/*Make items centered */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
+	/*Not to see the back */
+	backface-visibility: hidden;
+	
+	/*border and font */
+	border: solid 5px black;
+	font-size: 40px;
+	
+	/*Makes the faces stacked on top*/
+	position: absolute;
+	
+	/*Format them*/
+	height: 100%;
+	width: 100%;
+	
+}
+
+#front{
+	background-color: blue;
+}
+
+#back{
+	background-color:#ffa500;
+	transform: rotateY(180deg);
+}
+
+		@keyframes horizontalAndVerticalMovement{
+			0%{
+				top: 2px;
+			}
+			25%{
+				bottom: 2px;
+			}
+			50%{
+				left: 2px;
+			}
+			100%{
+				right: 2px;
+			}
+		}
+		
+		@keyframes spacingChange{
+			0%{
+				padding: 2% 0 0 0;
+			}
+			25%{
+				padding: 0 2% 0 0;
+			}
+			50%{
+				padding: 0 0 2% 0;
+			}
+			100%{
+				padding: 0 0 0 2%;
+			}
+		}
+		
+			@keyframes sizeAndBoldness{
+			0%{
+				font-size: 32px;
+				font-weight: bold;
+				color: #ffcc80;
+			}
+			25%{
+				font-size: 36px;
+				font-weight: bolder;
+				color: #fffc266;
+			}
+			50%{
+				font-weight: bolder;
+				font-size: 40;
+				color: #ff9900;
+			}
+			100%{
+				font-weight: normal;
+				font-size: 30px;
+			}
+		}
+		
+		@keyframes fadeDuringMotion{
+		  0%{
+		   left: 30%;
+		  }
+		  50%{
+		  left: 30%;
+		  }
+		  100%{
+		   opacity: 0;
+		  }
+		}
+		
+		
+		
+		
